@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3060;
 
 // 一个简单的 GET 路由
 app.get('/', (req, res) => {

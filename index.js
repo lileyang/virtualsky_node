@@ -1,16 +1,14 @@
-//express_demo.js 文件
-var express = require('express');
-var app = express();
- 
-app.get('/', function (req, res) {
-   res.send('Hello World!' + "应用实例，访问地址为 http://%s:%s", host, port);
-})
- 
-var server = app.listen(8081, function () {
- 
-  var host = server.address().address
-  var port = server.address().port
- 
-  console.log("应用实例，访问地址为 http://%s:%s", host, port)
- 
-})
+// express_demo.js
+const express = require('express');
+const app = express();
+
+const port = process.env.PORT || 8081;
+
+app.get('/', (req, res) => {
+  const host = req.hostname;
+  res.send(`Hello World! 应用实例，访问地址为 http://${host}:${port}`);
+});
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`应用实例，访问地址为 http://localhost:${port}`);
+});
